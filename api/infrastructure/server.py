@@ -16,4 +16,8 @@ app.add_middleware(
 
 @app.post('/predict')
 async def predict(params: List):
-    return Model('model.pkl').predict(params)
+    [prediction] = Model('domain/classifier.pkl').predict(params)
+
+    return {
+        "prediction": prediction
+    }
