@@ -9,6 +9,7 @@ fastapi = "*"
 xgboost = "*"
 sklearn = "*"
 pandas = "*"
+scikit-learn = "*"
 
 [dev-packages]
 

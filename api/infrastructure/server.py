@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -14,10 +14,18 @@ app.add_middleware(
     allow_headers=['Content-Type'],
 )
 
+
 @app.post('/predict')
-async def predict(params: List):
-    [prediction] = Model('domain/classifier.pkl').predict(params)
+async def predict(params: Dict):
+    data = Model().preprocess(params)
+    [prediction] = Model().predict(data)
+
+    if prediction == 1:
+        result = 'There is a high chance that the patient will suffer a stroke.'
+    else:
+        result = 'There is a low chance that the patient will suffer a stroke.'
 
     return {
-        "prediction": prediction
+        "prediction": 0 if prediction == 0 else 1,
+        "result": result
     }
