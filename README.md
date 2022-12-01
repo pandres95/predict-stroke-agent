@@ -1,7 +1,10 @@
 # Predict Stroke Agent
 
-Research paper: [link](./Paper-IA-2022-2.pdf)
-Demo video: [link](https://youtu.be/IvdUm4Av6TU)
+|||
+|:-|:-|
+| Research paper    |[link](./Paper-IA-2022-2.pdf)                                  |
+| Demo video        |[link](https://youtu.be/IvdUm4Av6TU)                           |
+| Demo application  |[link](https://predict-stroke-agent-un2027631.netlify.app/)    |
 
 This agent takes a pre-trained
 [stroke classifier model](./StrokePrediction.ipynb)
