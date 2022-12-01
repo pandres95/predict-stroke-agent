@@ -1,10 +1,10 @@
 # Predict Stroke Agent
 
 Research paper: [link](./Paper-IA-2022-2.pdf)
-Demo video: [link]()
+Demo video: [link](https://youtu.be/IvdUm4Av6TU)
 
 This agent takes a pre-trained
-[stroke classifier model](https://deepnote.com/workspace/introia-2022-2-89f5bfa6-bc8d-4c48-ac11-bbbb1cb9e892/project/ProyectoFinal-b0cbb4f4-b0d4-4b78-b7b4-e1881d7a2c49)
+[stroke classifier model](./StrokePrediction.ipynb)
 to deliver a prediction of whether a person might suffer a stroke, based on a
 series of input parameters.
 
