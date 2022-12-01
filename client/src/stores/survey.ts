@@ -1,16 +1,29 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
+import { useStorage } from "@vueuse/core";
+import { QuestionId, SurveyResult } from "../api/survey";
 
-export const useSurveyStore = defineStore('survey', {
+export const useSurveyStore = defineStore("survey", {
   state: () => ({
-    gender: 0,
-    age: 0,
-    hypertension: 0,
-    heart_disease: 0,
-    ever_married: 0,
-    work_type: 0,
-    Residence_type: 0,
-    avg_glucose_level: 0,
-    bmi: 0,
-    smoking_status: 0,
+    survey: useStorage("survey", {
+      gender: undefined,
+      age: undefined,
+      hypertension: undefined,
+      heart_disease: undefined,
+      ever_married: undefined,
+      work_type: undefined,
+      residence_type: undefined,
+      avg_glucose_level: undefined,
+      bmi: undefined,
+      smoking_status: undefined,
+    } as { [key: string]: number | undefined }),
+    result: useStorage("result", {} as SurveyResult),
   }),
-})
+  actions: {
+    setQuestion(question: QuestionId, response: number) {
+      this.survey[question] = response;
+    },
+    setResult(result: SurveyResult) {
+      this.result = result;
+    },
+  },
+});

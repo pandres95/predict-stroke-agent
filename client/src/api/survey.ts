@@ -1,6 +1,8 @@
+export type QuestionId = 'gender' | 'age' | 'hypertension' | 'heart_disease' | 'ever_married' | 'work_type' | 'residence_type' | 'avg_glucose_level' | 'bmi' | 'smoking_status';
+
 export type SurveyQuestion = {
   title: string;
-  next: string | null;
+  next: QuestionId | null;
 } & (
   | {
       type: "checkbox";
@@ -10,6 +12,11 @@ export type SurveyQuestion = {
       type: "number";
     }
 );
+
+export interface SurveyResult {
+  prediction: number;
+  result: string;
+}
 
 const survey: { [question: string]: SurveyQuestion } = {
   gender: {
@@ -26,19 +33,19 @@ const survey: { [question: string]: SurveyQuestion } = {
   hypertension: {
     title: "¿Padece usted de hipertensión?",
     type: "checkbox",
-    options: ["Si", "No"],
+    options: ["No", "Si"],
     next: "heart_disease",
   },
   heart_disease: {
     title: "¿Padece usted de una enfermedad cardíaca?",
     type: "checkbox",
-    options: ["Si", "No"],
+    options: ["No", "Si"],
     next: "ever_married",
   },
   ever_married: {
     title: "¿Ha estado usted casado?",
     type: "checkbox",
-    options: ["Si", "No"],
+    options: ["No", "Si"],
     next: "work_type",
   },
   work_type: {
@@ -51,9 +58,9 @@ const survey: { [question: string]: SurveyQuestion } = {
       "Soy independiente",
       "Soy un niño",
     ],
-    next: "Residence_type",
+    next: "residence_type",
   },
-  Residence_type: {
+  residence_type: {
     title: "Indique la opción que mejor describa su tipo de residencia",
     type: "checkbox",
     options: ["Rural", "Urbana"],
