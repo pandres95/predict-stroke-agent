@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 24px;
+    font-family: 'Lato';
+
+    background-color: var(--clinic-background);
+    color: var(--clinic-primary);
+}
+
+:root {
+    --clinic-primary: #FFFFFF;
+    --clinic-secondary: #484848;
+    --clinic-secondary-50: #48484850;
+    --clinic-background: #08C4C4;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 1.5em;
+}
+
+h2 {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.25em;
+}
+
+h1+p, h2+p {
+    margin-block-start: 1em;
+}
+
+p {
+    font-weight: 100;
+    color: var(--clinic-secondary);
+}
+
+p+p {
+    margin-block-start: 0.5em;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 1s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 0;
+}
